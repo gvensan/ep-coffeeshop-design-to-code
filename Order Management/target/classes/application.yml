@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    function:
+      definition: >-
+        coffeeshopOrderStatusV1ReadySourceCountryStoreIdOrderIdConsumer;coffeeshopOrderStatusV1InprogressSourceCountryStoreIdOrderIdConsumer;coffeeshopOrderStatusV1CompletedSourceCountryStoreIdOrderIdConsumer;coffeeshopOrderStatusV1OutofstockSourceCountryStoreIdOrderIdConsumer;coffeeshopOrderNewV1SourceCountryStoreIdRequestIdConsumer
+    stream:
+      bindings:
+        coffeeshopOrderStatusV1ReadySourceCountryStoreIdOrderIdConsumer-in-0:
+          destination: coffeeshop/order/status/v1/ready/*/*/*/*
+        coffeeshopOrderStatusV1InprogressSourceCountryStoreIdOrderIdConsumer-in-0:
+          destination: coffeeshop/order/status/v1/inprogress/*/*/*/*
+        coffeeshopOrderStatusV1CompletedSourceCountryStoreIdOrderIdConsumer-in-0:
+          destination: coffeeshop/order/status/v1/completed/*/*/*/*
+        coffeeshopOrderStatusV1OutofstockSourceCountryStoreIdOrderIdConsumer-in-0:
+          destination: coffeeshop/order/status/v1/outofstock/*/*/*/*
+        coffeeshopOrderNewV1SourceCountryStoreIdRequestIdConsumer-in-0:
+          destination: coffeeshop/order/new/v1/*/*/*/*
+      binders:
+        solace-binder:
+          type: solace
+          environment:
+            solace:
+              java:
+                host: 'tcp://localhost:55554'
+                msgVpn: default
+                clientUsername: default
+                clientPassword: default
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+server:
+  port: 8088
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
