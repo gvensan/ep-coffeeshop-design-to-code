@@ -39,6 +39,18 @@ The code demonstrates the following actions:
    * Configured to receive (subscribe) order details event
    * Configured publish an order completed event for every received order details event
 
+If you want to start afresh and build your own logic, you can generate spring-cloud-stream code using asyncapi-generator.
+
+For Order Management application:
+```
+asyncapi-generator -p binder=solace -p artifactId=CoffeeShop -p groupId=com.coffeeshop -p javaPackage=com.coffeeshop.ordermanagement -p actuator=true "Order Management-0.1.0.json" @asyncapi/java-spring-cloud-stream-template -o "Order Management"
+```
+
+For Barista Station application:
+```
+asyncapi-generator -p binder=solace -p artifactId=CoffeeShop -p groupId=com.coffeeshop -p javaPackage=com.coffeeshop.baristastation -p actuator=true "Barista Station-0.1.0.json" @asyncapi/java-spring-cloud-stream-template -o "Barista Station"
+```
+
 ## Running the Demo
 
 Open a terminal:
