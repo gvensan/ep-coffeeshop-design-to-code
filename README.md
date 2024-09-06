@@ -9,7 +9,9 @@ This repo contains code artifacts that were used in my Streamlining EDA Design a
 
 ## Coffee Shop Application Domain
 
-[pic]
+![image](https://github.com/user-attachments/assets/6e08c06e-1989-4960-89f2-c52d7c6fa126)
+
+
 
 ## Artifacts
 - *ep_coffeeshop_order_management_domain.json.json*: EP export of CoffeeShop Application Domain
