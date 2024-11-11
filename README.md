@@ -5,7 +5,11 @@
 ## Overview
 This repo contains code artifacts that were used in my Streamlining EDA Design and Code Generation with PubSub+ Event Portal and AsyncAPI.
 
-[Blog Link]()
+[Coming soon...]()
+
+## Getting started with PubSub+ Broker
+
+[solace.dev](https://www.solace.dev/) - Download a docker image to software broker locally on your machine, or signup for a free cloud trial account.
 
 ## Coffee Shop Application Domain
 
