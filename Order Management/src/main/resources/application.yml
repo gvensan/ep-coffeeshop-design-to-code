@@ -29,7 +29,7 @@ logging:
   level:
     root: info
     org:
-      springframework: info
+      springframework: error
 server:
   port: 8088
 management:

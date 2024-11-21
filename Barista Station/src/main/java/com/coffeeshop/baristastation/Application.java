@@ -43,23 +43,9 @@ public class Application {
 
 	@Bean
 	public Consumer<CoffeeShopOrderDetails> coffeeshopOrderDetailsV1SourceCountryStoreIdOrderIdConsumer() {
-		return order -> {
+		return data -> {
 			// Add business logic here.	
-			logger.info(String.format("\nNew Order received:\n %s", order));
-
-			// Build and send order completed event
-			CoffeeShopOrderStatus orderReady = new CoffeeShopOrderStatus()
-				.setCountry(order.getCountry())
-				.setOrderId(order.getOrderId())
-				.setRequestId(order.getRequestId())
-				.setSource(order.getSource())
-				.setStoreId(order.getStoreId())
-				.setStatus("READY");
-
-			logger.info(String.format("\nPublishing Order Ready:\n %s", orderReady));
-			sendCoffeeshopOrderStatusV1CompletedSourceCountryStoreIdOrderId(
-				orderReady, orderReady.getSource(), orderReady.getCountry(), String.valueOf(orderReady.getStoreId()), orderReady.getOrderId().toString()
-			);
+			logger.info(data.toString());
 		};
 	}
 

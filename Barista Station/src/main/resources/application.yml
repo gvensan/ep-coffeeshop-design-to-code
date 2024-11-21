@@ -27,9 +27,9 @@ logging:
   level:
     root: info
     org:
-      springframework: info
+      springframework: error
 server:
-  port: 8089
+  port: 18080
 management:
   endpoints:
     web:

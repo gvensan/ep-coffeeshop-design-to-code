@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    function:
+      definition: coffeeshopOrderUpdateV1SourceCountryStoreIdRequestIdConsumer
+    stream:
+      bindings:
+        coffeeshopOrderUpdateV1SourceCountryStoreIdRequestIdConsumer-in-0:
+          destination: coffeeshop/order/update/v1/*/*/*/*
+      binders:
+        solace-binder:
+          type: solace
+          environment:
+            solace:
+              java:
+                host: 'tcp://localhost:55554'
+                msgVpn: default
+                clientUsername: default
+                clientPassword: default
+logging:
+  level:
+    root: info
+    org:
+      springframework: error
+server:
+  port: 18081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

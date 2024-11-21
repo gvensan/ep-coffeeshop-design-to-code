@@ -70,6 +70,20 @@ public class Application {
 		return order -> {
 			// Add business logic here.	
 			logger.info(String.format("\nNew Order received:\n %s", order));
+      Random rand = new Random();
+
+      CoffeeShopOrderStatus orderStatus = new CoffeeShopOrderStatus()
+          .setCountry(order.getCountry())
+          .setRequestId(order.getRequestId())
+		      .setOrderId(order.getRequestId().multiply(new java.math.BigDecimal(100)).divide(new java.math.BigDecimal(10)))
+          .setSource(order.getSource())
+          .setStoreId(order.getStoreId())
+          .setStatus("ACCEPTED"); 
+        logger.info(String.format("\nPublishing Order Confirmation:\n %s", order));
+        String confirmation = String.format("coffeeshop/order/update/v1/%s/%s/%s/%s",
+            orderStatus.getSource(), orderStatus.getCountry(), orderStatus.getStoreId(), orderStatus.getRequestId());
+        streamBridge.send(confirmation, orderStatus);
+    
 			CoffeeShopNewOrder.Items[] items = order.getItems();
 			CoffeeShopOrderDetails.Items item1 = new CoffeeShopOrderDetails.Items()
 					.setQuantity(items[0].getQuantity())
